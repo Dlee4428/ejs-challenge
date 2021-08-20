@@ -1,0 +1,17 @@
+<%- include("partials/header") -%>
+
+<h1>Home</h1>
+<br>
+<p><%= homeRenderContent %></p>
+
+<!-- For Each Statement to post data -->
+<% homePostData.forEach(function(postData) { %>
+    <h1><%= postData.title %></h1>
+    <br>
+    <p><%= postData.content.substring(0, 100) + " ..." %>
+        <a href="/post/<%= _.kebabCase(postData.title) %>">Read More</a></p> 
+<% }); %>
+<br>
+<a class="btn btn-primary" href="/compose" role="button">Write Post</a>
+
+<%- include("partials/footer") -%>
